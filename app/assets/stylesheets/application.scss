@@ -14,3 +14,27 @@
 
  // bootstrap files
  @import "bootstrap";
+
+ @import "static_pages";
+
+ body {
+   background: #d7dce5;
+   color: #393939;
+ }
+ a {
+   color: #393939;
+ }
+ a:hover {
+   color: #393939;
+   text-decoration: none;
+ }
+ .paper-panel {
+    background: #fff;
+    padding: 40px;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+ }
+ .list-group-item.navigation {
+   border: none;
+   background-color: transparent;
+ }

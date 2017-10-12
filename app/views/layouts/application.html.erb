@@ -11,9 +11,31 @@
   <body>
     <%= render 'layouts/navigation' %>
     <div class="container-fluid" id="body-area">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-      <%= yield %>
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+      <div class="row">
+        <% if user_signed_in? %>
+          <div class="col-md-3">
+            <ul class="list-group">
+              <li class="list-group-item navigation"><%= link_to 'Home', root_path %></li>
+              <li class="list-group-item navigation"><%= link_to 'Coins', static_pages_list_path %></li>
+              <li class="list-group-item navigation"><%= link_to 'Portfolio', static_pages_portfolio_path %></li>
+              <li class="list-group-item navigation"><%= link_to 'Profile settings', edit_user_registration_path %></li>
+            </ul>
+          </div>
+        <% end %>
+        <div class="<% if user_signed_in? %>col-md-9<% else %>col-md-12<% end %>">
+          <div class="paper-panel">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
     </div>
     <%= render 'layouts/footer' %>
   </body>
