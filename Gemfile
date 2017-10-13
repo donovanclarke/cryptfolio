@@ -10,11 +10,14 @@ end
 gem 'rails', '~> 5.1.4'
 # bootstrap files
 gem 'bootstrap', '~> 4.0.0.beta'
+gem 'font-awesome-sass', '~> 4.7.0'
 #jquery is a bootstrap dep. gem
 gem 'jquery-rails'
 #use devise for authentication
 gem 'devise'
 gem 'httparty'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server

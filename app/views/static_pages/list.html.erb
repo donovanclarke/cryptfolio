@@ -1,2 +1,29 @@
-<h1>StaticPages#list</h1>
-<p>Find me in app/views/static_pages/list.html.erb</p>
+<div class="row margin mb-20">
+  <div class="col-md-6 col-sm-12">
+    <h2>List of coins</h2>
+  </div>
+  <div class="col-md-6 col-sm-12">
+    <%= form_for :coin do |f| %>
+      <%= select_tag 'coin[coinID]', options_for_select(@search.map { |i| [i['name'], i['id']]}), {:class => 'form-control float right select-width'} %>
+      <%= hidden_field_tag "coin[email]", current_user.email %>
+      <%= hidden_field_tag "coin[active]", 1 %>
+      <%= f.submit 'Add coin', class: 'btn btn-primary float right' %>
+    <% end %>
+  </div>
+</div>
+
+<div class="list-group">
+  <% @response.each do |item| %>
+    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1"><%= item['name'] %> - <%= item['symbol'] %></h5>
+        <small>$ <%= item['price_usd'] %> <span class="price-arrow <% if item['percent_change_1h'].to_f >= 0 %>up<% else %>down<% end %>"></span></small>
+      </div>
+      <p class="mb-1"></p>
+      <small><span style="font-weight: bold;">% Change (1hr)</span> <%= item['percent_change_1h'] %> - <span style="font-weight: bold;">% Change (24hr)</span> <%= item['percent_change_24h'] %></small>
+    </a>
+  <% end %>
+</div>
+<div class="margin mt-20">
+  <%= will_paginate @response, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer  %>
+</div>

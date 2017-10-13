@@ -2,12 +2,14 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: "devise/registrations"
   }
+  resources :coins
 
   get 'static_pages/home'
   get 'static_pages/list'
-  get 'static_pages/portfolio'
+  get 'static_pages/portfolio', to: 'static_pages#portfolio'
 
-  get 'ticker', to: 'static_pages#home'
+  post '/static_pages/list', to: 'static_pages#create'
+  # delete 'static_pages/portfolio/', to: 'static_pages#destroy'
 
   #might not need this settings
   get 'static_pages/settings'

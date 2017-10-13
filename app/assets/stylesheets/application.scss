@@ -15,6 +15,10 @@
  // bootstrap files
  @import "bootstrap";
 
+ // fontawesome files
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
+
  @import "static_pages";
 
  body {
@@ -28,6 +32,30 @@
    color: #393939;
    text-decoration: none;
  }
+ /* global margin values */
+ .margin {
+   &.mt-10 {
+     margin-top: 10px;
+   }
+   &.mt-20 {
+     margin-top: 20px;
+   }
+   &.mb-10 {
+     margin-bottom: 10px;
+   }
+   &.mb-20 {
+     margin-bottom: 20px;
+   }
+ }
+ /* global float values */
+ .float {
+   &.left {
+     float: left;
+   }
+   &.right {
+     float: right;
+   }
+ }
  .paper-panel {
     background: #fff;
     padding: 40px;
@@ -38,3 +66,7 @@
    border: none;
    background-color: transparent;
  }
+.pagination {
+  margin-left: auto;
+  margin-right: auto;
+}

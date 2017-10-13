@@ -1,2 +1,36 @@
 <h1>Portfolio</h1>
-<p> stuff go here son</p>
+<div class="list-group">
+  <% @coins.each do |item| %>
+  <div class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-end">
+      <%= link_to '<i class="fa fa-times" aria-hidden="true"></i>'.html_safe, coin_path(item), method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1"><%= item.coinID %></h5>
+      <small>$ value goes here</small>
+    </div>
+    <p class="mb-1">How many coins go here</p>
+    <small><a href="?coin=<%= item.id %>" data-toggle="modal" data-target="#addModal">Add your <%= item.coinID %></a></small>
+  </div>
+  <% end %>
+</div>
+
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add to portfolio</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        form can go here.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Add</button>
+      </div>
+    </div>
+  </div>
+</div>

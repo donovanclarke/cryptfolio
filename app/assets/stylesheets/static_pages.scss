@@ -1,3 +1,18 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.price-arrow {
+  font-family: 'fontAwesome';
+  &.up:after {
+    content: '\f176';
+    color: #28a745;
+  }
+  &.down:after {
+    content: '\f175';
+    color: #dc3545;
+  }
+}
+.select-width {
+  width: 250px;
+}
