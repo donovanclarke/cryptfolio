@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   post '/static_pages/list', to: 'static_pages#create'
   post '/static_pages/portfolio', to: 'coins#update'
-
+  post '/coins/index', to: 'trades#buy'
   #might not need this settings
   get 'static_pages/settings'
 

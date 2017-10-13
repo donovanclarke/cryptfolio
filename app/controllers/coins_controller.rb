@@ -1,5 +1,7 @@
 class CoinsController < ApplicationController
   def index
+    @buy = CoinBuy.select('*').where('email = ?', current_user.email)
+    @sell = CoinSell.select('*').where('email = ?', current_user.email)
   end
 
   def show
@@ -28,6 +30,7 @@ class CoinsController < ApplicationController
     #   format.json { head :no_content }
     # end
   end
+
 
   private
   def set_coins
