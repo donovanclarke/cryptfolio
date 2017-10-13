@@ -16,7 +16,6 @@ class StaticPagesController < ApplicationController
 
   def portfolio
     @coins = Coin.select('*').where('email = ?', current_user.email)
-
   end
 
   def settings

@@ -5,11 +5,11 @@ Rails.application.routes.draw do
   resources :coins
 
   get 'static_pages/home'
-  get 'static_pages/list'
+  get 'static_pages/list', to: 'static_pages#list'
   get 'static_pages/portfolio', to: 'static_pages#portfolio'
 
   post '/static_pages/list', to: 'static_pages#create'
-  # delete 'static_pages/portfolio/', to: 'static_pages#destroy'
+  post '/static_pages/portfolio', to: 'coins#update'
 
   #might not need this settings
   get 'static_pages/settings'
