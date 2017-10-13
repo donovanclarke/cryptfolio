@@ -1,0 +1,2 @@
+class CoinSell < ApplicationRecord
+end
