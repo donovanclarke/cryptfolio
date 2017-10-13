@@ -1,13 +1,13 @@
 <h1>Portfolio</h1>
 <div class="list-group">
-  <% @coins.each do |item| %>
+  <% @coins.each_with_index do |item, index| %>
   <div class="list-group-item list-group-item-action flex-column align-items-start">
     <div class="d-flex w-100 justify-content-end">
       <%= link_to '<i class="fa fa-times" aria-hidden="true"></i>'.html_safe, coin_path(item), method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1"><%= item.coinID %></h5>
-      <small>$ value goes here</small>
+      <small>$ <%= @amt[index] %></small>
     </div>
     <p class="mb-1"><span style="font-weight: bold;">Amount</span> <%= item.amount %></p>
     <small><a href="#" data-toggle="modal" data-target="#addModal-<%= item.coinID %>">Add your <%= item.coinID %></a></small>
@@ -25,7 +25,8 @@
         <div class="modal-body">
           <%= form_for coin_path(item) do |f| %>
           <%= hidden_field_tag "id", item.id %>
-          <%= text_field_tag "coin[amount]" %>
+          <label>Enter coin amount</label>
+          <%= text_field_tag "coin[amount]",nil, class: 'form-control' %>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>

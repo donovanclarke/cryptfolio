@@ -1,7 +1,7 @@
 class CoinsController < ApplicationController
   def index
   end
-  
+
   def show
   end
 
@@ -9,10 +9,10 @@ class CoinsController < ApplicationController
     @coin = Coin.find(params[:id])
     respond_to do |format|
       if @coin.update(coin_params)
-        format.html { redirect_to @coin, notice: 'Coin was successfully updated.' }
+        format.html { redirect_to static_pages_portfolio_url, notice: 'Coin was successfully updated.' }
         format.json { render :show, status: :ok, location: @coin }
       else
-        format.html { render :edit }
+        format.html { render :root }
         format.json { render json: @coin.errors, status: :unprocessable_entity }
       end
     end

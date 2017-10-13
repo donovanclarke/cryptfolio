@@ -16,6 +16,14 @@ class StaticPagesController < ApplicationController
 
   def portfolio
     @coins = Coin.select('*').where('email = ?', current_user.email)
+    # TODO: move this to model 
+    arr = []
+    Coin.find_each do |item|
+      coinID = item.coinID
+      response = HTTParty.get("https://api.coinmarketcap.com/v1/ticker/#{coinID}");
+      arr.push(response[0]['price_usd'].to_f * item.amount.to_f)
+    end
+    @amt = arr
   end
 
   def settings
