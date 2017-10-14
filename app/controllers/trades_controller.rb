@@ -1,5 +1,6 @@
 class TradesController < ApplicationController
   def list
+    # TODO: a lot of this can be moved into a model.
     @coin = Coin.select('*').where('email = ?', current_user.email)
 
     @buy = CoinBuy.select('*').where('email = ?', current_user.email)
