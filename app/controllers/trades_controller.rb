@@ -10,7 +10,7 @@ class TradesController < ApplicationController
 
     buyTotal = @buyAmount.sum(:price)
     sellTotal = @sellAmount.sum(:price)
-    profitTotal = buyTotal.merge(sellTotal) { |k, v1, v2| v1 - v2 }
+    profitTotal = sellTotal.merge(buyTotal) { |k, v1, v2| v1 - v2 }
 
     @buyTotal = buyTotal.to_a
     @sellTotal = sellTotal.to_a
