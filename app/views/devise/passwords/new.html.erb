@@ -5,12 +5,13 @@
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email, autofocus: true, class: 'form-control' %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+    <%= f.submit "Send me reset password instructions", class: 'btn btn-primary margin mt-10', style: 'width: 100%;' %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
+<div class="align center margin mt-20">
+  <%= render "devise/shared/links" %>
+</div>

@@ -8,7 +8,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body data-no-turbolink="true"> 
+  <body data-no-turbolink="true">
     <%= render 'layouts/navigation' %>
     <div class="container-fluid" id="body-area">
       <div class="row">
@@ -31,11 +31,21 @@
             </ul>
           </div>
         <% end %>
-        <div class="<% if user_signed_in? %>col-md-9<% else %>col-md-12<% end %>">
+        <% if user_signed_in? %>
+          <div class="col-md-9">
+            <div class="paper-panel">
+              <%= yield %>
+            </div
+          </div>
+        <% else %>
+        <div class="col-md-4"></div>
+        <div class="col-md-4 col-sm-12">
           <div class="paper-panel">
             <%= yield %>
           </div>
         </div>
+        <div class="col-md-4"></div>
+        <% end %>
       </div>
     </div>
     <%= render 'layouts/footer' %>
