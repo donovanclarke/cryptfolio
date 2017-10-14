@@ -16,7 +16,7 @@ class StaticPagesController < ApplicationController
 
   def portfolio
     @coins = Coin.select('*').where('email = ?', current_user.email)
-    # TODO: move this to model 
+    # TODO: move this to model
     arr = []
     Coin.find_each do |item|
       coinID = item.coinID
@@ -39,7 +39,7 @@ class StaticPagesController < ApplicationController
 
     respond_to do |format|
       if @coin.save
-        format.html { redirect_to static_pages_portfolio_path, notice: 'Coin was successfully added to portfolio.' }
+        format.html { redirect_to static_pages_portfolio_url, notice: 'Coin was successfully added to portfolio.' }
         format.json { render :home, status: :created, location: @coin}
       else
         format.html { render :list}

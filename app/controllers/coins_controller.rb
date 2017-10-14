@@ -1,9 +1,7 @@
 class CoinsController < ApplicationController
   def index
-    @buy = CoinBuy.select('*').where('email = ?', current_user.email)
-    @sell = CoinSell.select('*').where('email = ?', current_user.email)
-  end
 
+  end
   def show
   end
 
@@ -33,9 +31,9 @@ class CoinsController < ApplicationController
 
 
   private
-  def set_coins
-    @coin = Coin.find(params[:id])
-  end
+  # def set_coins
+  #   @coin = Coin.find(params[:id])
+  # end
   def coin_params
     params.require(:coin).permit(:id, :coinID, :email, :active, :amount)
   end

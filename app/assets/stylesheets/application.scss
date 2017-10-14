@@ -32,6 +32,15 @@
    color: #393939;
    text-decoration: none;
  }
+ /* global display values */
+ .display {
+   &.ib {
+     display: inline-block;
+   }
+   &.b {
+     display: block;
+   }
+ }
  /* global margin values */
  .margin {
    &.mt-10 {

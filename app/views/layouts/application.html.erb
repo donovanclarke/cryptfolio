@@ -8,7 +8,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body data-no-turbolink="true"> 
     <%= render 'layouts/navigation' %>
     <div class="container-fluid" id="body-area">
       <div class="row">
@@ -26,7 +26,7 @@
               <li class="list-group-item navigation"><%= link_to 'Home', root_path %></li>
               <li class="list-group-item navigation"><%= link_to 'Coins', static_pages_list_path %></li>
               <li class="list-group-item navigation"><%= link_to 'Portfolio', static_pages_portfolio_path %></li>
-              <li class="list-group-item navigation"><%= link_to 'Track profit/loss', coins_path %></li>
+              <li class="list-group-item navigation"><%= link_to 'Track profit/loss', trades_list_path %></li>
               <li class="list-group-item navigation"><%= link_to 'Profile settings', edit_user_registration_path %></li>
             </ul>
           </div>
