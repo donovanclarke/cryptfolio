@@ -10,11 +10,11 @@ class TradesController < ApplicationController
 
     buyTotal = @buyAmount.sum(:price)
     sellTotal = @sellAmount.sum(:price)
-
+    profitTotal = buyTotal.merge(sellTotal) { |k, v1, v2| v1 - v2 }
 
     @buyTotal = buyTotal.to_a
     @sellTotal = sellTotal.to_a
-    # @profitTotal = buyTotal.difference(sellTotal)
+    @profitTotal = profitTotal.to_a
   end
 
   def create
