@@ -9,7 +9,7 @@
       <h5 class="mb-1"><%= item.coinID %></h5>
       <small>$ <%= @amt[index] %></small>
     </div>
-    <p class="mb-1"><span style="font-weight: bold;">Amount</span> <%= item.amount %></p>
+    <p class="mb-1"><span style="font-weight: bold;">Amount</span> <% if !item.amount.nil? %><%= sprintf('%.9f',item.amount) %><% end %></p>
     <small><a href="#" data-toggle="modal" data-target="#addModal-<%= item.coinID %>">Add your <%= item.coinID %></a></small>
   </div>
   <!--- TODO: have paramters passed to form. --->
